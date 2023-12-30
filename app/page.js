@@ -30,6 +30,7 @@
 
 // export default Home
 
+"use client"
 import React, { useReducer } from 'react';
 
 const reducer = (state, action) => {
@@ -39,9 +40,11 @@ const reducer = (state, action) => {
     case 'UPDATE_PASSWORD':
       return { ...state, password: action.payload };
     case 'LOGIN':
-      return { ...state, isLoggedIn: true };
+      return { ...state, isLoggedIn: true, showError:false };
     case 'LOGOUT':
-      return { ...state, isLoggedIn: false };
+      return { ...state, isLoggedIn: false, showError:false };
+    case 'SHOW_ERROR':
+      return { ...state, isLoggedIn: false, showError:true };
     default:
       return state;
   }
